@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Added Successfully</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Pet Added Successfully!</h4>
+        <p>Your pet has been successfully added to the database.</p>
+        <hr>
+        <p class="mb-0">You can now <a th:href="@{/addPetForm}" class="alert-link">go back to the previous page</a>.</p>
+    </div>
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

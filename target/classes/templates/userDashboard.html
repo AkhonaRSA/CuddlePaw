@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Adoption</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class=" bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary fixed-top ">
+    <div class="container">
+        <a class="navbar-brand" href="#"><span class="text-warning">Cuddlepaw-Cottage</span> Adoption</a> <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5 p-5">
+    <!-- Search field -->
+    <div class="form-group mx-5 text-light">
+        <label class="" for="searchInput">Search pet by: Name, Breed or Age</label>
+        <input type="text" class="form-control" id="searchInput" placeholder="Search for a dog...">
+    </div>
+
+    <!-- Dog cards -->
+    <div class="row" id="dogCards">
+        <!-- Thymeleaf iteration to display dog cards -->
+        <div class="col-md-4 mb-3" th:each="pets : ${pets}">
+            <div class="card bg-warning">
+                <img th:src="${pets.imageUrl}" class="card-img-top" alt="Pet Image">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${pets.name}"></h5>
+                    <b class="card-text">
+                        <span>Age:</span> <!-- Label -->
+                        <span th:text="${pets.age}"></span> <!-- Text -->
+                        <span> years old.</span> <!-- Additional Text -->
+                    </b>
+                    <p class="card-text">
+                        <span>Species:</span> <!-- Label -->
+                        <span th:text="${pets.species}"></span> <!-- Text -->
+                    </p>
+                    <p class="card-text">
+                        <span>Breed:</span> <!-- Label -->
+                        <span th:text="${pets.breed}"></span> <!-- Text -->
+                    </p>
+                    <p class="card-text">
+                        <span>Brief Info:</span> <!-- Label -->
+                        <span th:text="${pets.briefInfo}"></span> <!-- Text -->
+                    </p>
+                    <a th:href="@{/adoptForm}" class="btn btn-secondary btn-block"
+                       th:text="'Adopt ' + ${pets.name}">Adopt</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- JavaScript for filtering dogs based on search input -->
+<script>
+    $(document).ready(function () {
+        $('#searchInput').on('keyup', function () {
+            var searchText = $(this).val().toLowerCase();
+            $('#dogCards .card').filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1)
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

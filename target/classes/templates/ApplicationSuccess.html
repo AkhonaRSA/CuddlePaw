@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body class="bg-dark">
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-success">
+            <h5 class="card-title ">Confirmation</h5>
+        </div>
+        <div class="card-body">
+            <b class="card-text">Thank you for your submission!</b>
+            <p class="card-text">We are looking forward to meet you. <span th:text="${petName}"></span>.</p>
+
+            <a href="#" class="btn btn-primary" th:href="@{/dogs}">Done</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

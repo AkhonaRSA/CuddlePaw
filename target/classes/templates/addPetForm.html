@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Pet</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+
+<div class="container mt-5">
+    <h2>Add Pet</h2>
+    <form th:action="@{/registerPet}" method="post">
+
+        <div class="form-group">
+            <label for="petName">Name:</label>
+            <input type="text" class="form-control" id="petName" name="petName">
+        </div>
+        <div class="form-group">
+            <label for="species">Species:</label>
+            <input type="text" class="form-control" id="species" name="species">
+        </div>
+        <div class="form-group">
+            <label for="breed">Breed:</label>
+            <input type="text" class="form-control" id="breed" name="breed">
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" class="form-control" id="age" name="age">
+        </div>
+        <div class="form-group">
+            <label for="description">Brief Description:</label>
+            <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="image">Image url:</label>
+            <input type="text" class="form-control" id="image" name="image">
+        </div>
+        <button type="submit" class="btn btn-warning">Submit</button>
+    </form>
+
+    <a th:href="@{/adminDashboard}" class="btn btn-secondary mt-3">Back</a>
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

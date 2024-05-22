@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+</head>
+<body class="bg-dark ">
+    <section >
+        <div class="container mt-3 ">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card bg-warning">
+                        <div class="card-header">
+                            <h1>Register</h1>
+                        </div>
+                        <div class="card-body">
+                            <form th:action="@{/register}" method="post">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" name="firstName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" name="lastName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password">
+                                </div>
+                                <!--                        <div class="form-check">-->
+                                <!--                            <input type="checkbox" class="form-check-input" id="enabled" name="enabled">-->
+                                <!--                            <label class="form-check-label" for="enabled">Admin</label>-->
+                                <!--                        </div>-->
+                                <button type="submit" class="btn btn-dark btn-lg btn-block mt-2">Register</button>
+                                <b class="mb-5 pb-lg-2" style="color: #393f81;">I have an account <a th:href="@{/login}" style="color: #393f81;">Sign-in here</a></b>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

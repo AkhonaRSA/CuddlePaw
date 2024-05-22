@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoption Applications</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body class="bg-secondary">
+
+
+<div class="container mt-5">
+    <div>
+        <h1>Applications List</h1>
+    </div>
+    <table class="table bg-light">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Email</th>
+            <th scope="col">Pet Name</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Visit Date and Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="appForm : ${applications}">
+            <td th:text="${appForm.formId}"></td>
+            <td th:text="${appForm.fullName}"></td>
+            <td th:text="${appForm.homeAddress}"></td>
+            <td th:text="${appForm.email}"></td>
+            <td th:text="${appForm.petName}"></td>
+            <td th:text="${appForm.contact}"></td>
+            <td th:text="${appForm.visitDateTime}"></td>
+            <td>
+                <form th:action="@{/removeApplication}" method="post">
+                    <input type="hidden" name="formId" th:value="${appForm.formId}" />
+                    <button type="submit" class="btn btn-danger btn-block">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="#" class="btn btn-primary" onclick="history.go(-1)">Back</a>
+</div>
+
+</body>
+</html>
